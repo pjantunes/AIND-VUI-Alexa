@@ -3,7 +3,11 @@ var Alexa = require('alexa-sdk');
 var APP_ID = undefined;  // can be replaced with your app ID if publishing
 var facts = require('./facts');
 var GET_FACT_MSG_EN = [
-    "Here's your fact: "
+    "Here's your fact: ",
+    "Here is your fact: ",
+    "I'm gald to give you this fact: ",
+    "Here's my fact for you: ",
+    "Please accept this fact: "
 ]
 // Test hooks - do not remove!
 exports.GetFactMsg = GET_FACT_MSG_EN;
@@ -66,11 +70,25 @@ var handlers = {
         var randomFact = randomPhrase(factArr);
 
         // Create speech output
-        var speechOutput = this.t("GET_FACT_MESSAGE") + randomFact;
-        this.emit(':tellWithCard', speechOutput, this.t("SKILL_NAME"), randomFact)
+        var factMsg = randomGetFactMsg(GET_FACT_MSG_EN);
+        var speechOutput = factMsg + randomFact;
+        this.emit(':askWithCard', speechOutput, "Tell me the year please", this.t("SKILL_NAME"), randomFact)
     },
     'GetNewYearFactIntent': function () {
         //TODO your code here
+        this.emit('GetYearFact');
+    },
+    'GetYearFact': function () {
+        var factArr = this.t('FACTS');
+        var randomFact = randomPhrase(factArr);
+        var year = this.event.request.intent.slots["FACT_YEAR"].value;
+        var factMsg = randomGetFactMsg(GET_FACT_MSG_EN);
+        if (year){
+            var speechOutput = factMsg + getPhrase(year,factArr);
+        } else {
+            var speechOutput = factMsg + randomFact;
+        }
+        this.emit(':askWithCard', speechOutput, "Tell me the year please", this.t("SKILL_NAME"), randomFact);
     },
     'AMAZON.HelpIntent': function () {
         var speechOutput = this.t("HELP_MESSAGE");
@@ -91,4 +109,24 @@ function randomPhrase(phraseArr) {
     var i = 0;
     i = Math.floor(Math.random() * phraseArr.length);
     return (phraseArr[i]);
+};
+
+function randomGetFactMsg(getFactMsgs) {
+    // returns a random GetFactMsg
+    var i = 0;
+    i = Math.floor(Math.random() * getFactMsgs.length);
+    return (getFactMsgs[i]);
+};
+
+function getPhrase(year, phraseArr) {
+    // returns phrase with year
+    // where phraseArr is an array of string phrases
+    var arrayLength = phraseArr.length;
+    for (var i = 0; i < arrayLength; i++) {
+        if (phraseArr[i].includes(year))
+            return (phraseArr[i]);
+    }
+    var j = 0;
+    j = Math.floor(Math.random() * phraseArr.length);
+    return (phraseArr[j]);
 };

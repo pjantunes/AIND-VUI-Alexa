@@ -6,11 +6,22 @@
     {
       "intent": "AMAZON.HelpIntent"
     },
+
     {
-      "intent": "AMAZON.StopIntent"
+      "intent": "AMAZON.StopIntent" 
     },
     {
       "intent": "AMAZON.CancelIntent"
+    },
+    {
+      "intent": "GetNewYearFactIntent", 
+      "slots": [
+        {
+          "name": "FACT_YEAR",
+          "type": "AMAZON.FOUR_DIGIT_NUMBER"
+        }
+      ]  
     }
+
   ]
 }

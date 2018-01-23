@@ -2,3 +2,29 @@ GetNewFactIntent a fact
 GetNewFactIntent tell me a fact
 GetNewFactIntent give me a fact
 GetNewFactIntent give me something
+GetNewFactIntent a AI fact
+GetNewFactIntent tell me a AI fact
+GetNewFactIntent give me a AI fact
+GetNewFactIntent tell me trivia
+GetNewFactIntent tell me a AI trivia
+GetNewFactIntent give me trivia
+GetNewFactIntent give me a AI trivia
+GetNewFactIntent give me some information
+GetNewFactIntent give me some AI information
+GetNewFactIntent tell me something
+GetNewFactIntent give me something
+GetNewYearFactIntent a fact of year {FACT_YEAR}
+GetNewYearFactIntent tell me a fact of year {FACT_YEAR}
+GetNewYearFactIntent give me a fact of year {FACT_YEAR}
+GetNewYearFactIntent give me something of year {FACT_YEAR}
+GetNewYearFactIntent a AI fact of year {FACT_YEAR}
+GetNewYearFactIntent tell me a AI fact of year {FACT_YEAR}
+GetNewYearFactIntent give me a AI fact of year {FACT_YEAR}
+GetNewYearFactIntent tell me trivia of year {FACT_YEAR}
+GetNewYearFactIntent tell me a AI trivia of year {FACT_YEAR}
+GetNewYearFactIntent give me trivia of year {FACT_YEAR}
+GetNewYearFactIntent give me a AI trivia of year {FACT_YEAR}
+GetNewYearFactIntent give me some information of year {FACT_YEAR}
+GetNewYearFactIntent give me some AI information of year {FACT_YEAR}
+GetNewYearFactIntent tell me something of year {FACT_YEAR}
+GetNewYearFactIntent give me something of year {FACT_YEAR}
